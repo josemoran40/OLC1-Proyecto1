@@ -56,12 +56,15 @@ namespace _OLC1_Proyecto1
             expresion--;
             if (images.Count() > expresion && expresion>-1)
             {
-                pictureBox1.Image = images.ElementAt(expresion);
+                pictureBox1.Image = Picture.ElementAt(expresion);
+                pictureBox2.Image = AFD.ElementAt(expresion);
+
             }
             else
             {
                 expresion = images.Count()-1;
-                pictureBox1.Image = images.ElementAt(expresion);
+                pictureBox1.Image = Picture.ElementAt(expresion);
+                pictureBox2.Image = AFD.ElementAt(expresion);
             }
         }
 
@@ -81,15 +84,27 @@ namespace _OLC1_Proyecto1
             }
         }
         LinkedList<Image> images;
+        LinkedList<Image> AFD;
+        LinkedList<Image> Tablas;
+        LinkedList<Image> Picture;
         int expresion;
         private void button7_Click(object sender, EventArgs e)
         {
             AnalizadorLexico analizador = new AnalizadorLexico();
             LinkedList<Token> ltokens = analizador.analizar(fastColoredTextBox1.Text);
-            ArbolBinario arbolBinario = new ArbolBinario();
+            LinkedList<Error> lErrores = analizador.getListaErrores();
+            ReconecedorConjuntos reconecedorConjuntos = new ReconecedorConjuntos();
+            //reconecedorConjuntos.analizar(ltokens);
+           // ltokens = reconecedorConjuntos.getTokens();
+          ArbolBinario arbolBinario = new ArbolBinario();
             LinkedList<Nodo> nodos = arbolBinario.generarLista(ltokens);
             images = arbolBinario.getImagenes();
+            AFD = arbolBinario.getAFD();
+            Tablas = arbolBinario.getTablas();
+            Picture = images;
             pictureBox1.Image = images.ElementAt(0);
+            pictureBox2.Image = AFD.ElementAt(0);
+            
             generarXMLTokens(ltokens);
             generarAFN(nodos);
             expresion = 0;
@@ -184,17 +199,44 @@ namespace _OLC1_Proyecto1
         {
             expresion++;
             if (images.Count() > expresion) {
-                pictureBox1.Image = images.ElementAt(expresion);
+                pictureBox1.Image = Picture.ElementAt(expresion);
+                pictureBox2.Image = AFD.ElementAt(expresion);
             }
             else
             {
                 expresion=0;
-                pictureBox1.Image = images.ElementAt(expresion);
+                pictureBox1.Image = Picture.ElementAt(expresion);
+                pictureBox2.Image = AFD.ElementAt(expresion);
             }
         }
 
         private void pictureBox1_Click_1(object sender, EventArgs e)
         {
+
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
+        }
+        bool cambio = true;
+        private void button8_Click(object sender, EventArgs e)
+        {
+            if (cambio)
+            {
+                Picture = Tablas;
+                pictureBox1.Image = Picture.ElementAt(expresion);
+                cambio = false;
+                groupBox3.Text = "Tabla de Transiciones";
+
+            }
+            else {
+                Picture = images;
+                pictureBox1.Image = Picture.ElementAt(expresion);
+                cambio = true; 
+                groupBox3.Text = "AFN";
+
+            }
 
         }
     }

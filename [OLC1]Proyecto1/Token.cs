@@ -35,7 +35,11 @@ namespace _OLC1_Proyecto1
             CADENA,
             ULTIMO,
             OPERADOR,
-
+            SALTODELINEA,
+            TABULACION,
+            COMILLA,
+            TODO,
+            SLASHCOMILLAS
 
         }
 
@@ -136,6 +140,16 @@ namespace _OLC1_Proyecto1
                     return "Cadena";
                 case Token.Tipo.SLASH:
                     return "Slash";
+                case Token.Tipo.SALTODELINEA:
+                    return "Salto de linea";
+                case Token.Tipo.TABULACION:
+                    return "Tabulacion";
+                case Token.Tipo.COMILLA:
+                    return "Comilla";
+                case Token.Tipo.TODO:
+                    return "Todo";
+                case Token.Tipo.SLASHCOMILLAS:
+                    return "Comillas Dobles";
                 default:
                     return "desconocido";
 

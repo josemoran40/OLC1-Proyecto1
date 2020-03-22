@@ -162,7 +162,9 @@ namespace _OLC1_Proyecto1
                 cadena += izquierda.generarAFN(last + index + "3", last);
             }
 
-            else if (this.anterior == Token.Tipo.CADENA || this.anterior == Token.Tipo.ID)
+            else if (this.anterior == Token.Tipo.CADENA || this.anterior == Token.Tipo.ID
+                            ||  this.anterior == Token.Tipo.SALTODELINEA ||  this.anterior == Token.Tipo.TABULACION
+                            ||  this.anterior == Token.Tipo.SLASHCOMILLAS ||  this.anterior == Token.Tipo.COMILLA || this.anterior == Token.Tipo.TODO)
             {
                 cadena += first + "->" + last + "[label = \"" + valor + "\"]";
             }
@@ -195,9 +197,9 @@ namespace _OLC1_Proyecto1
             else if (this.anterior == Token.Tipo.PUNTO)
             {
                 
-                transicions = izquierda.generarTransiciones(first, last + index + "1", transicions);
+                transicions = izquierda.generarTransiciones(first, last+index + "1", transicions);
                 transicions = derecha.generarTransiciones(last + index + "1", last, transicions);
-
+                //0---211---2
             }
             else if (this.anterior == Token.Tipo.INTERROGACION)
             {
@@ -219,9 +221,16 @@ namespace _OLC1_Proyecto1
                 transicions = izquierda.generarTransiciones(last + index + "3",last, transicions);
             }
 
-            else if (this.anterior == Token.Tipo.CADENA || this.anterior == Token.Tipo.ID)
+            else if (this.anterior == Token.Tipo.CADENA || this.anterior == Token.Tipo.ID
+                            || this.anterior == Token.Tipo.SALTODELINEA || this.anterior == Token.Tipo.TABULACION
+                            || this.anterior == Token.Tipo.SLASHCOMILLAS || this.anterior == Token.Tipo.COMILLA
+                            || this.anterior == Token.Tipo.TODO)
             {
-                transicions.AddLast(new Transicion(last, last, valor));
+                transicions.AddLast(new Transicion(first, last, valor));
+                if (!ArbolBinario.entradas.Contains(valor))
+                {
+                    ArbolBinario.entradas.AddLast(valor);
+                }
             }
             return transicions;
 

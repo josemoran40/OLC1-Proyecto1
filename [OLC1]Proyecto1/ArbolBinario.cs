@@ -15,10 +15,17 @@ namespace _OLC1_Proyecto1
         LinkedList<Token> lNuevos;
         LinkedList<Nodo> tokensNuevos;
         LinkedList<Image> imagenes;
-
+        LinkedList<Image> AFD;
+        LinkedList<Mueve> mueves;
+        LinkedList<Image> Tablas;
+        public static LinkedList<string> entradas;
+        
         public LinkedList<Nodo> generarLista(LinkedList<Token> tokens)
         {
             imagenes = new LinkedList<Image>();
+            AFD = new LinkedList<Image>();
+            mueves = new LinkedList<Mueve>();
+            Tablas = new LinkedList<Image>();
             lTokens = tokens;
             for (int i = 0; i < lTokens.Count(); i++)
             {
@@ -32,27 +39,18 @@ namespace _OLC1_Proyecto1
                     lNodos = new LinkedList<Nodo>();
                     lNuevos = new LinkedList<Token>();
                     tokensNuevos = new LinkedList<Nodo>();
-                    
-                    int nomenclatura = 0;
-                    int hojas = 1;
+                    entradas = new LinkedList<string>();
                     i = i + 2;
                     token = lTokens.ElementAt(i);
                     while (token.getTipo() != Token.Tipo.PUNTOYCOMA)
                     {
                         if (token.getTipo() != Token.Tipo.COMILLA_DOBLES && token.getTipo() != Token.Tipo.LLAVE_ABRE && token.getTipo() != Token.Tipo.LLAVE_CIERRA)
                         {
-                            if (token.getTipo() == Token.Tipo.CADENA || token.getTipo() == Token.Tipo.ID)
-                            {
-
-                                hojas++;
-                            }
                             lNuevos.AddLast(token);
                         }
                         i++;
                         token = lTokens.ElementAt(i);
                     }
-                    bool reiniciar = false;
-
                     Nodo nodo;
                     for (int j = 0; j < lNuevos.Count(); j++)
                     {
@@ -88,6 +86,27 @@ namespace _OLC1_Proyecto1
                                 nodo = new Nodo(token.getValor(), token.getTipo(), j, token.getTipo());
                                 tokensNuevos.AddLast(nodo);
                                 break;
+
+                            case Token.Tipo.SALTODELINEA:
+                                nodo = new Nodo(token.getValor(), token.getTipo(), j, token.getTipo());
+                                tokensNuevos.AddLast(nodo);
+                                break;
+                            case Token.Tipo.TABULACION:
+                                nodo = new Nodo(token.getValor(), token.getTipo(), j, token.getTipo());
+                                tokensNuevos.AddLast(nodo);
+                                break;
+                            case Token.Tipo.COMILLA:
+                                nodo = new Nodo(token.getValor(), token.getTipo(), j, token.getTipo());
+                                tokensNuevos.AddLast(nodo);
+                                break;
+                            case Token.Tipo.SLASHCOMILLAS:
+                                nodo = new Nodo(token.getValor(), token.getTipo(), j, token.getTipo());
+                                tokensNuevos.AddLast(nodo);
+                                break;
+                            case Token.Tipo.TODO:
+                                nodo = new Nodo(token.getValor(), token.getTipo(), j, token.getTipo());
+                                tokensNuevos.AddLast(nodo);
+                                break;
                         }
                     }
 
@@ -108,11 +127,17 @@ namespace _OLC1_Proyecto1
                         {
                             r++;
                         }
-
+                        Console.WriteLine("entra");
                     }
 
                     tokensNuevos.ElementAt(0).imprimirNodos();
                    imagenes.AddLast( generarGraphviz());
+                    LinkedList<Transicion> transicions = new LinkedList<Transicion>();
+                     transicions = tokensNuevos.ElementAt(0).generarTransiciones("F","L",transicions);
+                    Thompson thompson = new Thompson();
+                    mueves = thompson.generarAFD(transicions);
+                    AFD.AddLast(Run(thompson.getGraphivz()));
+                    Tablas.AddLast(Run(thompson.tablaDeTransiciones()));
                    // generarImagen(generarGraphviz());
                 }
                 else if (token.getTipo() == Token.Tipo.PORCENTAJE)
@@ -128,6 +153,16 @@ namespace _OLC1_Proyecto1
             return imagenes;
         }
 
+        public LinkedList<Image> getAFD()
+        {
+            return AFD;
+        }
+
+        public LinkedList<Image> getTablas()
+        {
+            return Tablas;
+        }
+
         bool nodoBinario(int indice)
         {
             if ((indice + 2) < tokensNuevos.Count())
@@ -138,11 +173,17 @@ namespace _OLC1_Proyecto1
                 {
                     //-------------Verifica si viene el primer operando
                     if (tokensNuevos.ElementAt(indice+1).getTipo() == Token.Tipo.CADENA
-                            || tokensNuevos.ElementAt(indice+1).getTipo() == Token.Tipo.ID || tokensNuevos.ElementAt(indice+1).getTipo() == Token.Tipo.OPERADOR)
+                            || tokensNuevos.ElementAt(indice+1).getTipo() == Token.Tipo.ID || tokensNuevos.ElementAt(indice+1).getTipo() == Token.Tipo.OPERADOR
+                            || tokensNuevos.ElementAt(indice + 1).getTipo() == Token.Tipo.SALTODELINEA || tokensNuevos.ElementAt(indice + 1).getTipo() == Token.Tipo.TABULACION
+                            || tokensNuevos.ElementAt(indice + 1).getTipo() == Token.Tipo.SLASHCOMILLAS || tokensNuevos.ElementAt(indice + 1).getTipo() == Token.Tipo.COMILLA
+                            || tokensNuevos.ElementAt(indice + 1).getTipo() == Token.Tipo.TODO)
                     {
                         //--------Veifica si viene el segundo operando
                         if (tokensNuevos.ElementAt(indice + 2 ).getTipo() == Token.Tipo.CADENA
-                                || tokensNuevos.ElementAt(indice + 2 ).getTipo() == Token.Tipo.ID || tokensNuevos.ElementAt(indice + 2 ).getTipo() == Token.Tipo.OPERADOR)
+                                || tokensNuevos.ElementAt(indice + 2 ).getTipo() == Token.Tipo.ID || tokensNuevos.ElementAt(indice + 2 ).getTipo() == Token.Tipo.OPERADOR
+                            || tokensNuevos.ElementAt(indice + 2).getTipo() == Token.Tipo.SALTODELINEA || tokensNuevos.ElementAt(indice + 2).getTipo() == Token.Tipo.TABULACION
+                            || tokensNuevos.ElementAt(indice + 2).getTipo() == Token.Tipo.SLASHCOMILLAS || tokensNuevos.ElementAt(indice + 2).getTipo() == Token.Tipo.COMILLA
+                            || tokensNuevos.ElementAt(indice + 2).getTipo() == Token.Tipo.TODO)
                         {
                             tokensNuevos.ElementAt(indice).setizquierda(tokensNuevos.ElementAt(indice+1));
                             tokensNuevos.ElementAt(indice).setderecha(tokensNuevos.ElementAt(indice + 2 ));
@@ -170,7 +211,10 @@ namespace _OLC1_Proyecto1
                 {
                     //-------------Verifica si viene el primer operando
                     if (tokensNuevos.ElementAt(indice+1).getTipo() == Token.Tipo.CADENA
-                            || tokensNuevos.ElementAt(indice+1).getTipo() == Token.Tipo.ID || tokensNuevos.ElementAt(indice+1).getTipo() == Token.Tipo.OPERADOR)
+                            || tokensNuevos.ElementAt(indice+1).getTipo() == Token.Tipo.ID || tokensNuevos.ElementAt(indice+1).getTipo() == Token.Tipo.OPERADOR
+                            || tokensNuevos.ElementAt(indice + 1).getTipo() == Token.Tipo.SALTODELINEA || tokensNuevos.ElementAt(indice + 1).getTipo() == Token.Tipo.TABULACION
+                            || tokensNuevos.ElementAt(indice + 1).getTipo() == Token.Tipo.SLASHCOMILLAS || tokensNuevos.ElementAt(indice + 1).getTipo() == Token.Tipo.COMILLA
+                            || tokensNuevos.ElementAt(indice + 1).getTipo() == Token.Tipo.TODO)
                     {
                         tokensNuevos.ElementAt(indice).setizquierda(tokensNuevos.ElementAt(indice+1));
                         tokensNuevos.ElementAt(indice).setAnterior(tokensNuevos.ElementAt(indice).getTipo());
@@ -191,7 +235,7 @@ namespace _OLC1_Proyecto1
             String cadena = "";
             LinkedList<Transicion> transicions = new LinkedList<Transicion>();
             cadena += "digraph g{\n";
-            cadena += "Graph" + "[label = \"sexo anal\"];\n";
+            cadena += "Graph" + "[label = \"AFN\"];\n";
             cadena += "rankdir=LR\n;";
             cadena += "N [shape = doublecircle, fontsize = 1; style = filled fillcolor=white,  fontcolor = white, color = white];";
             cadena += "F [shape = circle, fontsize = 1;style = filled fillcolor=aquamarine, color = aquamarine, fontcolor = aquamarine];";
@@ -205,6 +249,8 @@ namespace _OLC1_Proyecto1
             Image dot = Run(cadena);
             return dot;
         }
+
+
 
         public static string graphviz = @"D:\Programas\Graphviz\bin\dot.exe";
         public static string archivoentrada = @"C:\Users\jose_\OneDrive\Escritorio\grafico.txt";

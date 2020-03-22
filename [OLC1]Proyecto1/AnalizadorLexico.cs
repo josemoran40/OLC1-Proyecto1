@@ -165,6 +165,16 @@ namespace _OLC1_Proyecto1
                         else if (c == ' ')
                         {
                             columna++;
+                        }else if(c== '\\'){
+                            estado = 10;
+                            token += c;
+                            columna++;
+                        }
+                        else if (c == '[')
+                        {
+                            estado = 11;
+                            token += c;
+                            columna++;
                         }
                         else
                         {
@@ -198,7 +208,7 @@ namespace _OLC1_Proyecto1
                         break;
 
                     case 3:
-                        if (char.IsLetterOrDigit(c))
+                        if (char.IsLetterOrDigit(c) || c == '_')
                         {
                             token += c;
                             estado = 3;
@@ -300,6 +310,94 @@ namespace _OLC1_Proyecto1
                         {
                             token += c;
                             estado = 8;
+                        }
+                        break;
+                    case 10:
+                        token += c;
+                        if (c == 'n')
+                        {
+                            agregarToken(Token.Tipo.SALTODELINEA);
+                        }
+                        else if (c == 't')
+                        {
+                            agregarToken(Token.Tipo.TABULACION);
+                        }
+                        else if (c == '"')
+                        {
+                            agregarToken(Token.Tipo.SLASHCOMILLAS);
+                        }
+                        else if (c == '\'') {
+                            agregarToken(Token.Tipo.COMILLA);
+                        }
+                        else
+                        {
+                            agregarToken(Token.Tipo.SLASH);
+                            estado = 0;
+                            i--;
+                        }
+                        columna++;
+                        break;
+                    case 11:
+                        token += c;
+                        if (c == ':')
+                        {
+                            estado = 12;
+                            columna++;
+                        }
+                        else
+                        {
+                            estado = 0;
+                            i--;
+                            columna--;
+                        }
+                        break;
+
+
+                    case 12:
+                        token += c;
+                        if (char.IsLetter(c))
+                        {
+                            estado = 12;
+                            columna++;
+                            if (token.Equals("[:todo")) {
+                                estado = 13;
+                            }
+                        }
+                        else
+                        {
+                            estado = 0;
+                            i--;
+                            columna--;
+                        }
+                        break;
+
+                    case 13:
+                        token += c;
+                        if (c == ':')
+                        {
+                            estado = 14;
+                            columna++;
+                        }
+                        else
+                        {
+                            estado = 0;
+                            i--;
+                            columna--;
+                        }
+                        break;
+
+                    case 14:
+                        token += c;
+                        if (c == ']')
+                        {
+                            agregarToken(Token.Tipo.TODO);
+                            columna++;
+                        }
+                        else
+                        {
+                            estado = 0;
+                            i--;
+                            columna--;
                         }
                         break;
 
