@@ -87,6 +87,7 @@ namespace _OLC1_Proyecto1
         LinkedList<Image> AFD;
         LinkedList<Image> Tablas;
         LinkedList<Image> Picture;
+        LinkedList<Conjunto> conjuntos;
         int expresion;
         private void button7_Click(object sender, EventArgs e)
         {
@@ -94,7 +95,7 @@ namespace _OLC1_Proyecto1
             LinkedList<Token> ltokens = analizador.analizar(fastColoredTextBox1.Text);
             LinkedList<Error> lErrores = analizador.getListaErrores();
             ReconecedorConjuntos reconecedorConjuntos = new ReconecedorConjuntos();
-            //reconecedorConjuntos.analizar(ltokens);
+            conjuntos = reconecedorConjuntos.analizar(ltokens);
            // ltokens = reconecedorConjuntos.getTokens();
           ArbolBinario arbolBinario = new ArbolBinario();
             LinkedList<Nodo> nodos = arbolBinario.generarLista(ltokens);
@@ -104,7 +105,8 @@ namespace _OLC1_Proyecto1
             Picture = images;
             pictureBox1.Image = images.ElementAt(0);
             pictureBox2.Image = AFD.ElementAt(0);
-            
+            ValidarExpresion validarExpresion = new ValidarExpresion();
+            validarExpresion.validarExpresiones(ltokens, ArbolBinario.lMueves, conjuntos, arbolBinario.getFin());
             generarXMLTokens(ltokens);
             generarAFN(nodos);
             expresion = 0;

@@ -18,7 +18,9 @@ namespace _OLC1_Proyecto1
         LinkedList<Image> AFD;
         LinkedList<Mueve> mueves;
         LinkedList<Image> Tablas;
+        public int fin;
         public static LinkedList<string> entradas;
+        public static LinkedList<LinkedList<Mueve>> lMueves;
         
         public LinkedList<Nodo> generarLista(LinkedList<Token> tokens)
         {
@@ -27,10 +29,12 @@ namespace _OLC1_Proyecto1
             mueves = new LinkedList<Mueve>();
             Tablas = new LinkedList<Image>();
             lTokens = tokens;
+            lMueves = new LinkedList<LinkedList<Mueve>>();
+            fin = 0;
             for (int i = 0; i < lTokens.Count(); i++)
             {
                 token = lTokens.ElementAt(i);
-
+               
                 if (token.getTipo() == Token.Tipo.ID && lTokens.ElementAt(i+1).getTipo() == Token.Tipo.FLECHA &&
                         (lTokens.ElementAt(i+2).getTipo() == Token.Tipo.ASTERISCO || lTokens.ElementAt(i+2).getTipo() == Token.Tipo.PUNTO ||
                         lTokens.ElementAt(i+2).getTipo() == Token.Tipo.INTERROGACION || lTokens.ElementAt(i+2).getTipo() == Token.Tipo.OR ||
@@ -136,13 +140,18 @@ namespace _OLC1_Proyecto1
                      transicions = tokensNuevos.ElementAt(0).generarTransiciones("F","L",transicions);
                     Thompson thompson = new Thompson();
                     mueves = thompson.generarAFD(transicions);
+                    lMueves.AddLast(thompson.getMueves());
                     AFD.AddLast(Run(thompson.getGraphivz()));
                     Tablas.AddLast(Run(thompson.tablaDeTransiciones()));
                    // generarImagen(generarGraphviz());
+
+
                 }
                 else if (token.getTipo() == Token.Tipo.PORCENTAJE)
                 {
+                    fin = i;
                     i = lTokens.Count();
+                    
                 }
             }
             
@@ -161,6 +170,10 @@ namespace _OLC1_Proyecto1
         public LinkedList<Image> getTablas()
         {
             return Tablas;
+        }
+
+        public int getFin() {
+            return fin;
         }
 
         bool nodoBinario(int indice)

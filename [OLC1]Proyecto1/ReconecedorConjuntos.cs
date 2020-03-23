@@ -71,10 +71,7 @@ namespace _OLC1_Proyecto1
                     }
                     conjunto.setCaracteres(lCaracteres);
                     lConjuntos.AddLast(conjunto);
-                    for (int j = temp ; j < temp2; j++)
-                    {
-                        lTokens.Remove(lTokens.ElementAt(j));
-                    }
+                    
 
                 }
             }

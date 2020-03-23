@@ -114,7 +114,15 @@ namespace _OLC1_Proyecto1
             foreach (var item in mueves)
             {
                 Console.WriteLine("Mueve de: " +item.getEstado() + " con: " + item.getEntrada() + " hacia: " +item.getCerradura().getNombre());
-                cadena += item.getEstado() + "->" + item.getCerradura().getNombre() + "[label = \"" + item.getEntrada()  + "\" ];\n";
+
+                if (item.getEntrada().Equals("\n") || item.getEntrada().Equals("\t") || item.getEntrada().Equals("\\"))
+                {
+                    cadena += item.getEstado() + "->" + item.getCerradura().getNombre() + "[label = \"\\" + item.getEntrada() + "\" ];\n";
+                }
+                else
+                {
+                    cadena += item.getEstado() + "->" + item.getCerradura().getNombre() + "[label = \"" + item.getEntrada() + "\" ];\n";
+                }
                 if (item.getCerradura().getTransiciones().Contains("L"))
                 {
                     cadena += item.getCerradura().getNombre() + " [shape = doublecircle; style = filled fillcolor=aquamarine, color = aquamarine];";
@@ -245,6 +253,10 @@ namespace _OLC1_Proyecto1
 
         public string getGraphivz() {
             return cadena;
+        }
+
+        public LinkedList<Mueve> getMueves() {
+            return mueves;
         }
     }
 }

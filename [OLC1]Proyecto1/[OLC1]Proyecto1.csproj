@@ -70,6 +70,7 @@
     <Compile Include="Thompson.cs" />
     <Compile Include="Token.cs" />
     <Compile Include="Transicion.cs" />
+    <Compile Include="ValidarExpresion.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
