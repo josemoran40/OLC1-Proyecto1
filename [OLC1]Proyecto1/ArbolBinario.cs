@@ -48,7 +48,8 @@ namespace _OLC1_Proyecto1
                     token = lTokens.ElementAt(i);
                     while (token.getTipo() != Token.Tipo.PUNTOYCOMA)
                     {
-                        if (token.getTipo() != Token.Tipo.COMILLA_DOBLES && token.getTipo() != Token.Tipo.LLAVE_ABRE && token.getTipo() != Token.Tipo.LLAVE_CIERRA)
+                        if (token.getTipo() != Token.Tipo.COMILLA_DOBLES && token.getTipo() != Token.Tipo.LLAVE_ABRE && token.getTipo() != Token.Tipo.LLAVE_CIERRA 
+                            && token.getTipo() != Token.Tipo.CORCHETECIERRA && token.getTipo() != Token.Tipo.CORCHETEABRE && token.getTipo() != Token.Tipo.DOS_PUNTOS)
                         {
                             lNuevos.AddLast(token);
                         }
@@ -251,9 +252,9 @@ namespace _OLC1_Proyecto1
             cadena += "Graph" + "[label = \"AFN\"];\n";
             cadena += "rankdir=LR\n;";
             cadena += "N [shape = doublecircle, fontsize = 1; style = filled fillcolor=white,  fontcolor = white, color = white];";
-            cadena += "F [shape = circle, fontsize = 1;style = filled fillcolor=aquamarine, color = aquamarine, fontcolor = aquamarine];";
-            cadena += "L [shape = doublecircle, fontsize = 1; style = filled fillcolor=aquamarine,  fontcolor = aquamarine, color = aquamarine]; N->F;";
-            cadena += "node [shape = circle, fontsize = 1; style = filled fillcolor=aquamarine, color = aquamarine, fontcolor = aquamarine]";
+            cadena += "F [shape = circle, fontsize = 10;style = filled fillcolor=aquamarine, color = aquamarine];";
+            cadena += "L [shape = doublecircle, fontsize = 10; style = filled fillcolor=aquamarine, color = aquamarine]; N->F;";
+            cadena += "node [shape = circle, fontsize = 10; style = filled fillcolor=aquamarine, color = aquamarine]";
             cadena +=tokensNuevos.ElementAt(0).generarAFN("F","L");
             transicions = tokensNuevos.ElementAt(0).generarTransiciones("F", "L", transicions);
             cadena += "}";

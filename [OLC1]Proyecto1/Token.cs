@@ -39,8 +39,10 @@ namespace _OLC1_Proyecto1
             TABULACION,
             COMILLA,
             TODO,
-            SLASHCOMILLAS
-
+            SLASHCOMILLAS,
+            CARACTER,
+            CORCHETEABRE,
+            CORCHETECIERRA
         }
 
         private Tipo TipoToken;
@@ -150,6 +152,12 @@ namespace _OLC1_Proyecto1
                     return "Todo";
                 case Token.Tipo.SLASHCOMILLAS:
                     return "Comillas Dobles";
+                case Token.Tipo.CARACTER:
+                    return "Caracter";
+                case Token.Tipo.CORCHETEABRE:
+                    return "Cochete";
+                case Token.Tipo.CORCHETECIERRA:
+                    return "Cochete";
                 default:
                     return "desconocido";
 

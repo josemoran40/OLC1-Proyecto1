@@ -106,6 +106,18 @@ namespace _OLC1_Proyecto1
 
             return false;
         }
+
+        public string getValidaciones()
+        {
+            string cadena = "";
+
+            for (int i = 0; i < expresiones.Count; i++)
+            {
+                cadena +="\t" +expresiones.ElementAt(i)+"\n";
+            }
+
+            return cadena;
+        }
     }
 
 

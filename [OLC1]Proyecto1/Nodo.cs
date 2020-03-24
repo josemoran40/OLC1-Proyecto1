@@ -153,13 +153,13 @@ namespace _OLC1_Proyecto1
             {
 
 
-                cadena += first+ "->" + last + index + "1[label = \"ε\"];\n";
-                cadena += last + index + "2->" + last + index + "3[label = \"ε\"];\n";
-                cadena += first + "->" + last + index + "3[label = \"ε\"];\n";
+                cadena += last + index + "0" + "->" + last + index + "1[label = \"ε\"];\n";
+                cadena += last + index + "2->" + last +"[label = \"ε\"];\n";
+                cadena += last + index + "0" + "->" + last +"[label = \"ε\"];\n";
                 cadena += last + index + "2->" + last + index + "1[label = \"ε\"];\n";
                 cadena += izquierda.generarAFN(last + index + "1", last + index + "2");
 
-                cadena += izquierda.generarAFN(last + index + "3", last);
+                cadena += izquierda.generarAFN(first, last + index + "0");
             }
 
             else if (this.anterior == Token.Tipo.CADENA || this.anterior == Token.Tipo.ID
@@ -213,12 +213,12 @@ namespace _OLC1_Proyecto1
             }
             else if (this.anterior == Token.Tipo.MAS)
             {
-                transicions.AddLast(new Transicion(first, last + index + "1", "ε"));
-                transicions.AddLast(new Transicion(last + index + "2", last + index + "3", "ε"));
-                transicions.AddLast(new Transicion(first, last + index + "3", "ε"));
+                transicions.AddLast(new Transicion(last + index + "0", last + index + "1", "ε"));
+                transicions.AddLast(new Transicion(last + index + "2", last , "ε"));
+                transicions.AddLast(new Transicion(last + index + "0", last , "ε"));
                 transicions.AddLast(new Transicion(last + index + "2", last + index + "1", "ε"));
                 transicions = izquierda.generarTransiciones(last + index + "1", last + index + "2", transicions);
-                transicions = izquierda.generarTransiciones(last + index + "3",last, transicions);
+                transicions = izquierda.generarTransiciones(first, last + index + "0", transicions);
             }
 
             else if (this.anterior == Token.Tipo.CADENA || this.anterior == Token.Tipo.ID

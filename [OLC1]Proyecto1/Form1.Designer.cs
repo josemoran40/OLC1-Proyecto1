@@ -28,12 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.fastColoredTextBox1 = new FastColoredTextBoxNS.FastColoredTextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
@@ -41,17 +39,17 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.button8 = new System.Windows.Forms.Button();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.fastColoredTextBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -102,42 +100,9 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // fastColoredTextBox1
-            // 
-            this.fastColoredTextBox1.AutoCompleteBracketsList = new char[] {
-        '(',
-        ')',
-        '{',
-        '}',
-        '[',
-        ']',
-        '\"',
-        '\"',
-        '\'',
-        '\''};
-            this.fastColoredTextBox1.AutoIndentCharsPatterns = "^\\s*[\\w\\.]+(\\s\\w+)?\\s*(?<range>=)\\s*(?<range>[^;=]+);\r\n^\\s*(case|default)\\s*[^:]*" +
-    "(?<range>:)\\s*(?<range>[^;]+);";
-            this.fastColoredTextBox1.AutoScrollMinSize = new System.Drawing.Size(31, 17);
-            this.fastColoredTextBox1.BackBrush = null;
-            this.fastColoredTextBox1.CharHeight = 17;
-            this.fastColoredTextBox1.CharWidth = 10;
-            this.fastColoredTextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.fastColoredTextBox1.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
-            this.fastColoredTextBox1.IsReplaceMode = false;
-            this.fastColoredTextBox1.LineNumberColor = System.Drawing.Color.MidnightBlue;
-            this.fastColoredTextBox1.Location = new System.Drawing.Point(18, 25);
-            this.fastColoredTextBox1.Name = "fastColoredTextBox1";
-            this.fastColoredTextBox1.Paddings = new System.Windows.Forms.Padding(0);
-            this.fastColoredTextBox1.SelectionColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(255)))));
-            this.fastColoredTextBox1.ServiceColors = ((FastColoredTextBoxNS.ServiceColors)(resources.GetObject("fastColoredTextBox1.ServiceColors")));
-            this.fastColoredTextBox1.Size = new System.Drawing.Size(665, 360);
-            this.fastColoredTextBox1.TabIndex = 1;
-            this.fastColoredTextBox1.Zoom = 100;
-            this.fastColoredTextBox1.Load += new System.EventHandler(this.fastColoredTextBox1_Load);
-            // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.fastColoredTextBox1);
+            this.groupBox1.Controls.Add(this.tabControl1);
             this.groupBox1.Font = new System.Drawing.Font("Courier New", 10.01739F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.groupBox1.Location = new System.Drawing.Point(27, 93);
@@ -217,6 +182,27 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "AFD";
             // 
+            // panel3
+            // 
+            this.panel3.AutoScroll = true;
+            this.panel3.BackColor = System.Drawing.Color.White;
+            this.panel3.Controls.Add(this.pictureBox2);
+            this.panel3.Location = new System.Drawing.Point(24, 22);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(501, 290);
+            this.panel3.TabIndex = 1;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.White;
+            this.pictureBox2.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(512, 321);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox2.TabIndex = 0;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
+            // 
             // button2
             // 
             this.button2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button2.BackgroundImage")));
@@ -275,6 +261,7 @@
             this.button5.Size = new System.Drawing.Size(46, 31);
             this.button5.TabIndex = 8;
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button6
             // 
@@ -289,6 +276,7 @@
             this.button6.Size = new System.Drawing.Size(46, 34);
             this.button6.TabIndex = 9;
             this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // button7
             // 
@@ -306,27 +294,6 @@
             this.button7.UseVisualStyleBackColor = true;
             this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
-            // panel3
-            // 
-            this.panel3.AutoScroll = true;
-            this.panel3.BackColor = System.Drawing.Color.White;
-            this.panel3.Controls.Add(this.pictureBox2);
-            this.panel3.Location = new System.Drawing.Point(24, 22);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(501, 290);
-            this.panel3.TabIndex = 1;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.Color.White;
-            this.pictureBox2.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(512, 321);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox2.TabIndex = 0;
-            this.pictureBox2.TabStop = false;
-            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
-            // 
             // button8
             // 
             this.button8.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button8.BackgroundImage")));
@@ -341,6 +308,14 @@
             this.button8.TabIndex = 11;
             this.button8.UseVisualStyleBackColor = true;
             this.button8.Click += new System.EventHandler(this.button8_Click);
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Location = new System.Drawing.Point(13, 22);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(670, 351);
+            this.tabControl1.TabIndex = 0;
             // 
             // Form1
             // 
@@ -368,7 +343,6 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.fastColoredTextBox1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
@@ -387,7 +361,6 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button button1;
-        private FastColoredTextBoxNS.FastColoredTextBox fastColoredTextBox1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.RichTextBox richTextBox1;
@@ -405,6 +378,7 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.TabControl tabControl1;
     }
 }
 

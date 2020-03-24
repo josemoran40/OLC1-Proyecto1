@@ -41,18 +41,18 @@ namespace _OLC1_Proyecto1
                         i--;//Se obtiene el primer valor
                         token = lTokens.ElementAt(i);
                         char[] array1 = token.getValor().ToCharArray();
-                        int  valor1 = (int)Char.GetNumericValue(array1[0]);
+                        int  valor1 = (char)token.getValor()[0];
 
                         i = i + 2;//Se obtiene el segundo valor
                         temp2 = i;
                         token = lTokens.ElementAt(i);
                         char[] array2 = token.getValor().ToCharArray();
-                        int valor2 = (int)Char.GetNumericValue(array2[0]);
+                        int valor2 = (char)token.getValor()[0];
 
                         for (int j = valor1; j <= valor2; j++)
                         {
                             String strAsciiTab = ""+(char)j;
-                            lCaracteres.AddLast(strAsciiTab);
+                            lCaracteres.AddLast(""+(char)j);
                         }
 
                     }

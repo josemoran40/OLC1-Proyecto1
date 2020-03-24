@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -72,15 +73,28 @@ namespace _OLC1_Proyecto1
         OpenFileDialog ofd = new OpenFileDialog();
         private void button4_Click(object sender, EventArgs e)
         {
-            ofd.Filter = "ER|*.er";
-            string nombre = "";
-            string nombreArchivo;
-            if (ofd.ShowDialog() == DialogResult.OK)
+            if (tabControl1.TabCount != 0)
             {
-                string ruta = ofd.FileName;
-                nombre = ofd.SafeFileName;
-                nombreArchivo = nombre;
-                fastColoredTextBox1.Text = File.ReadAllText(ruta, Encoding.Default);
+                ofd.Filter = "ER|*.er";
+                string nombre = "";
+                string nombreArchivo;
+                if (ofd.ShowDialog() == DialogResult.OK)
+                {
+                    string ruta = ofd.FileName;
+                    nombre = ofd.SafeFileName;
+                    nombreArchivo = nombre;
+
+                    int selectedTab = tabControl1.SelectedIndex;
+                    Control ctrl = tabControl1.Controls[selectedTab].Controls[0];
+
+                    tabControl1.Controls[selectedTab].Text = nombre;
+                    FastColoredTextBoxNS.FastColoredTextBox rtb = ctrl as FastColoredTextBoxNS.FastColoredTextBox;
+                    rtb.Text = File.ReadAllText(ruta, Encoding.Default);    
+                }
+            }
+            else
+            {
+                MessageBox.Show("CREE UNA PESTAÑA NUEVA", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
         LinkedList<Image> images;
@@ -91,25 +105,56 @@ namespace _OLC1_Proyecto1
         int expresion;
         private void button7_Click(object sender, EventArgs e)
         {
-            AnalizadorLexico analizador = new AnalizadorLexico();
-            LinkedList<Token> ltokens = analizador.analizar(fastColoredTextBox1.Text);
-            LinkedList<Error> lErrores = analizador.getListaErrores();
-            ReconecedorConjuntos reconecedorConjuntos = new ReconecedorConjuntos();
-            conjuntos = reconecedorConjuntos.analizar(ltokens);
-           // ltokens = reconecedorConjuntos.getTokens();
-          ArbolBinario arbolBinario = new ArbolBinario();
-            LinkedList<Nodo> nodos = arbolBinario.generarLista(ltokens);
-            images = arbolBinario.getImagenes();
-            AFD = arbolBinario.getAFD();
-            Tablas = arbolBinario.getTablas();
-            Picture = images;
-            pictureBox1.Image = images.ElementAt(0);
-            pictureBox2.Image = AFD.ElementAt(0);
-            ValidarExpresion validarExpresion = new ValidarExpresion();
-            validarExpresion.validarExpresiones(ltokens, ArbolBinario.lMueves, conjuntos, arbolBinario.getFin());
-            generarXMLTokens(ltokens);
-            generarAFN(nodos);
-            expresion = 0;
+            if (tabControl1.TabCount != 0)
+            {
+                int selectedTab = tabControl1.SelectedIndex;
+                Control ctrl = tabControl1.Controls[selectedTab].Controls[0];
+                FastColoredTextBoxNS.FastColoredTextBox rtb = ctrl as FastColoredTextBoxNS.FastColoredTextBox;
+
+                AnalizadorLexico analizador = new AnalizadorLexico();
+                LinkedList<Token> ltokens = analizador.analizar(rtb.Text);
+                LinkedList<Error> lErrores = analizador.getListaErrores();
+                AnalizadorSintactico analizadorSintactico = new AnalizadorSintactico();
+                analizadorSintactico.parsear(ltokens, lErrores);
+                lErrores = analizadorSintactico.GetErrors();
+                if (lErrores.Count == 0)
+                {
+                    Console.WriteLine("Jalo al 100");
+
+                    ReconecedorConjuntos reconecedorConjuntos = new ReconecedorConjuntos();
+                    conjuntos = reconecedorConjuntos.analizar(ltokens);
+                    ltokens = reconecedorConjuntos.getTokens();
+                    ArbolBinario arbolBinario = new ArbolBinario();
+                    LinkedList<Nodo> nodos = arbolBinario.generarLista(ltokens);
+                    images = arbolBinario.getImagenes();
+                    AFD = arbolBinario.getAFD();
+                    Tablas = arbolBinario.getTablas();
+                    Picture = images;
+                    pictureBox1.Image = images.ElementAt(0);
+                    pictureBox2.Image = AFD.ElementAt(0);
+                    ValidarExpresion validarExpresion = new ValidarExpresion();
+                    validarExpresion.validarExpresiones(ltokens, ArbolBinario.lMueves, conjuntos, arbolBinario.getFin());
+                    if (validarExpresion.getValidaciones() != "")
+                    {
+                        richTextBox1.Text = "\n" + validarExpresion.getValidaciones();
+                    }
+                    else
+                    {
+                        richTextBox1.Text = "\n\tNo hay lexemas validos";
+                    }
+                    generarXMLTokens(ltokens);
+                    generarAFN(nodos);
+                    expresion = 0;
+                }
+                else
+                {
+                    MessageBox.Show("ERROR DE ENTRADA", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("CREE UNA PESTAÑA NUEVA", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void richTextBox1_TextChanged(object sender, EventArgs e)
@@ -122,6 +167,27 @@ namespace _OLC1_Proyecto1
             string path = "archivo.xml";
             File.WriteAllText(path, "");
 
+            iTextSharp.text.Document doc = new iTextSharp.text.Document();
+            iTextSharp.text.pdf.PdfWriter.GetInstance(doc, new FileStream("reporte.pdf", FileMode.Create));
+            doc.Open();
+            iTextSharp.text.Paragraph titulo = new iTextSharp.text.Paragraph();
+            titulo.Font = iTextSharp.text.FontFactory.GetFont(iTextSharp.text.FontFactory.HELVETICA_BOLD, 18f, iTextSharp.text.BaseColor.ORANGE);
+            titulo.Add("REPORTE DE TOKENS");
+            doc.Add(titulo);
+            doc.Add(new iTextSharp.text.Paragraph("\n"));
+
+            doc.Add(new iTextSharp.text.Paragraph("\n"));
+
+            doc.Add(new iTextSharp.text.Paragraph(""));
+
+            iTextSharp.text.pdf.PdfPTable table = new iTextSharp.text.pdf.PdfPTable(4);
+
+            table.AddCell("Tokens");
+            table.AddCell("Lexema");
+            table.AddCell("Fila");
+            table.AddCell("Columa");
+
+
 
             if (File.Exists(path))
             {
@@ -131,6 +197,10 @@ namespace _OLC1_Proyecto1
                     file.WriteLine("<ListaTokens>");
                     foreach (Token item in tokens)
                     {
+                        table.AddCell(item.getToken());
+                        table.AddCell(item.getValor());
+                        table.AddCell(item.getFila().ToString());
+                        table.AddCell(item.getColumna().ToString());
                         file.WriteLine(
                         "   <Token>\n"+
                         "       <Nombre>" + item.getToken() + "</Nombre>\n" +
@@ -144,6 +214,8 @@ namespace _OLC1_Proyecto1
                     Console.WriteLine("si se modifico");
                     file.Close();
                 }
+                doc.Add(table);
+                doc.Close();
             }
             /*Process p = new Process();
             p.StartInfo.FileName = path;
@@ -161,7 +233,7 @@ namespace _OLC1_Proyecto1
 
                 using (StreamWriter file = File.AppendText(path))
                 {
-                    file.WriteLine("<ListaErrroes>");
+                    file.WriteLine("<ListaErrores>");
                     foreach (Error item in errors)
                     {
                         file.WriteLine(
@@ -240,6 +312,54 @@ namespace _OLC1_Proyecto1
 
             }
 
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+
+            TabPage page = new TabPage();
+
+            tabControl1.TabPages.Add(page);
+            FastColoredTextBoxNS.FastColoredTextBox rtb = new FastColoredTextBoxNS.FastColoredTextBox();
+
+            rtb.Dock = DockStyle.Fill;
+            tabControl1.SelectTab(page);
+            tabControl1.SelectedTab.Controls.Add(rtb);
+
+
+            int x = (tabControl1.TabCount);
+            tabControl1.SelectedTab.Text = "Pestaña " + x;
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            if (tabControl1.TabCount == 0)
+            {
+                MessageBox.Show("Click on button1 to create a new tab.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                FolderBrowserDialog folder = new FolderBrowserDialog();
+
+                if (folder.ShowDialog() == DialogResult.OK)
+                {
+                    int selectedTab = tabControl1.SelectedIndex;
+                    Control ctrl = tabControl1.Controls[selectedTab].Controls[0];
+                    FastColoredTextBoxNS.FastColoredTextBox rtb = ctrl as FastColoredTextBoxNS.FastColoredTextBox;
+                    string cadena = rtb.Text;
+                    string ruta = folder.SelectedPath;
+                    string nombre = InputKey.InputDialog.mostrar("Ingrese el nombre del archivo");
+                    
+                    using (StreamWriter file = new StreamWriter(ruta + "\\" + nombre + ".er"))
+                    {
+                        file.Write(cadena);
+                    }
+                    Console.WriteLine(ruta);
+
+                    tabControl1.SelectedTab.Text = nombre + ".ly";
+                    MessageBox.Show("Archivo guardado con exito", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
         }
     }
 

@@ -26,7 +26,7 @@ namespace _OLC1_Proyecto1
             estado = 0;
             token = "";
             comentario = "";
-
+            cadena += "#";
             for (int i = 0; i < cadena.Length; i++)
             {
                 c = cadena[i];
@@ -34,7 +34,29 @@ namespace _OLC1_Proyecto1
                 switch (estado)
                 {
                     case 0:
-                        if (c == '.')
+                        char com = ' ';
+                        if (i + 1 < cadena.Length) {
+                            com = cadena[i + 1];
+                        }
+
+                        if (com== '~') {
+                            token += c;
+                            agregarToken(Token.Tipo.CARACTER);
+                            i++;
+                            c = cadena[i];
+                            token += c;
+                            agregarToken(Token.Tipo.VIRGULILLA);
+                            i++;
+                            c = cadena[i];
+                            token += c;
+                            agregarToken(Token.Tipo.CARACTER);
+                        }
+                        else if( com == ','){
+                            token += c;
+                            agregarToken(Token.Tipo.CARACTER);
+                            estado = 15;
+                        }
+                        else if (c == '.')
                         {
                             token += c;
                             agregarToken(Token.Tipo.PUNTO);
@@ -111,6 +133,12 @@ namespace _OLC1_Proyecto1
                             agregarToken(Token.Tipo.MENORQUE);
                             estado = 7;
                         }
+                        else if (c == '>')
+                        {
+                            token += c;
+                            agregarToken(Token.Tipo.MENORQUE);
+                            estado = 7;
+                        }
                         else if (c == '}')
                         {
                             token += c;
@@ -125,11 +153,6 @@ namespace _OLC1_Proyecto1
                         {
                             token += c;
                             agregarToken(Token.Tipo.DOS_PUNTOS);
-                        }
-                        else if (c == ',')
-                        {
-                            token += c;
-                            agregarToken(Token.Tipo.COMA);
                         }
                         else if (char.IsDigit(c))
                         {
@@ -165,19 +188,26 @@ namespace _OLC1_Proyecto1
                         else if (c == ' ')
                         {
                             columna++;
-                        }else if(c== '\\'){
+                        } else if (c == '\\') {
                             estado = 10;
                             token += c;
                             columna++;
                         }
                         else if (c == '[')
                         {
-                            estado = 11;
                             token += c;
+                            agregarToken(Token.Tipo.CORCHETEABRE);
+                            estado = 11;
                             columna++;
+                        }
+                        else if (c == '#')
+                        {
+                            token += c;
+                            agregarToken(Token.Tipo.ULTIMO);
                         }
                         else
                         {
+                            token += c;
                             agregarError();
                         }
 
@@ -264,7 +294,10 @@ namespace _OLC1_Proyecto1
                         }
                         else
                         {
-                            token += c;
+                            if (c != '\r')
+                            {
+                                token += c;
+                            }
                             estado = 6;
                         }
                         break;
@@ -272,13 +305,14 @@ namespace _OLC1_Proyecto1
                         if (c == '!')
                         {
                             token += c;
-                            agregarToken(Token.Tipo.INTERROGACION);
+                            agregarToken(Token.Tipo.EXCLAMACION);
                             estado = 8;
                         }
                         else
                         {
                             i--;
                             columna--;
+                            estado = 0;
                         }
                         break;
 
@@ -316,17 +350,24 @@ namespace _OLC1_Proyecto1
                         token += c;
                         if (c == 'n')
                         {
+                            token = "\n";
                             agregarToken(Token.Tipo.SALTODELINEA);
                         }
                         else if (c == 't')
                         {
+
+                            token = "\t";
                             agregarToken(Token.Tipo.TABULACION);
                         }
                         else if (c == '"')
                         {
+
+                            token = "\"";
                             agregarToken(Token.Tipo.SLASHCOMILLAS);
                         }
                         else if (c == '\'') {
+
+                            token = "'";
                             agregarToken(Token.Tipo.COMILLA);
                         }
                         else
@@ -334,13 +375,15 @@ namespace _OLC1_Proyecto1
                             agregarToken(Token.Tipo.SLASH);
                             estado = 0;
                             i--;
+                            columna--;
                         }
                         columna++;
                         break;
                     case 11:
-                        token += c;
                         if (c == ':')
                         {
+                            token += c;
+                            agregarToken(Token.Tipo.DOS_PUNTOS);
                             estado = 12;
                             columna++;
                         }
@@ -348,33 +391,32 @@ namespace _OLC1_Proyecto1
                         {
                             estado = 0;
                             i--;
-                            columna--;
                         }
                         break;
 
 
                     case 12:
-                        token += c;
                         if (char.IsLetter(c))
                         {
+
+                            token += c;
                             estado = 12;
                             columna++;
-                            if (token.Equals("[:todo")) {
-                                estado = 13;
-                            }
+                            
                         }
                         else
                         {
-                            estado = 0;
+                            agregarToken(Token.Tipo.CADENA);
+                            estado = 13;
                             i--;
-                            columna--;
                         }
                         break;
 
                     case 13:
-                        token += c;
                         if (c == ':')
                         {
+                            token += c;
+                            agregarToken(Token.Tipo.DOS_PUNTOS);
                             estado = 14;
                             columna++;
                         }
@@ -382,22 +424,37 @@ namespace _OLC1_Proyecto1
                         {
                             estado = 0;
                             i--;
-                            columna--;
                         }
                         break;
 
                     case 14:
-                        token += c;
                         if (c == ']')
                         {
-                            agregarToken(Token.Tipo.TODO);
+                            token += c;
+                            agregarToken(Token.Tipo.CORCHETECIERRA);
                             columna++;
                         }
                         else
                         {
                             estado = 0;
                             i--;
-                            columna--;
+                        }
+                        break;
+                    case 15:
+                        if (c == ',')
+                        {
+                            token += c;
+                            agregarToken(Token.Tipo.COMA);
+                            i++;
+                            c = cadena[i];
+                            token += c;
+                            agregarToken(Token.Tipo.CARACTER);
+                            estado = 15;
+                            columna++;
+                        } else
+                        {
+                            i--;
+                            estado =0 ;
                         }
                         break;
 
