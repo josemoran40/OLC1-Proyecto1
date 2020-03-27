@@ -1,0 +1,20 @@
+<ListaErrores>
+   <Error>
+       <Valor>Se esperaba Comillas Dobles</Valor>
+       <Fila>24</Fila>
+       <Columna>8</Columna>
+   </Error>
+
+   <Error>
+       <Valor>Se esperaba Cadena</Valor>
+       <Fila>24</Fila>
+       <Columna>8</Columna>
+   </Error>
+
+   <Error>
+       <Valor>Se esperaba Comillas Dobles</Valor>
+       <Fila>24</Fila>
+       <Columna>11</Columna>
+   </Error>
+
+</ListaErrores>

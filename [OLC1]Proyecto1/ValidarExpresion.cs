@@ -9,7 +9,8 @@ namespace _OLC1_Proyecto1
     class ValidarExpresion
     {
         LinkedList<string> expresiones;
-        public LinkedList<string> validarExpresiones(LinkedList<Token> lTokens, LinkedList<LinkedList<Mueve>> lMueves, LinkedList<Conjunto> lConjuntos, int fin) {
+        public LinkedList<string> validarExpresiones(LinkedList<Token> lTokens, LinkedList<LinkedList<Mueve>> lMueves, 
+            LinkedList<Conjunto> lConjuntos, int fin, LinkedList<string> nombres) {
             expresiones = new LinkedList<string>();
 
             for (int i = fin; i < lTokens.Count; i++)
@@ -19,11 +20,12 @@ namespace _OLC1_Proyecto1
                     string nombre = token.getValor();
                     i = i + 3;
                     token = lTokens.ElementAt(i);
+                    bool agrego = false;
                     for (int j = 0; j < lMueves.Count; j++)
                     {
                         string cadena = token.getValor();
                         string cadenaInicial = cadena;
-                        if (lMueves.ElementAt(j).Count != 0)
+                        if (lMueves.ElementAt(j).Count != 0  &&  nombres.ElementAt(j).Equals(nombre))
                         {
                             string estado = lMueves.ElementAt(j).ElementAt(0).getEstado(); ;
                             bool aceptacion = false;
@@ -85,16 +87,24 @@ namespace _OLC1_Proyecto1
                             }
                             if ((cadena == "" && aceptacion) || (cadenaInicial == "" && aceptacionInicio))
                             {
-                                expresiones.AddLast(nombre + " es valida con la expresion " + (j + 1));
-                                Console.WriteLine(nombre + " es valida con la expresion " + (j + 1));
+                                expresiones.AddLast(nombre + " es valida");
+                                Console.WriteLine(nombre + " es valida");
+                                agrego = true;
                             }
                         }
+                    }
+                    if (!agrego)
+                    {
+                        expresiones.AddLast(nombre + " no es valida");
+                        Console.WriteLine(nombre + " no es valida");
+                        
                     }
                 }
             }
             return expresiones;
         }
 
+        
         bool existeConjunto(LinkedList<Conjunto> conjuntos, string nombre, string entrada) {
 
             for (int i = 0; i < conjuntos.Count; i++)

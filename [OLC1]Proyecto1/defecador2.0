@@ -1,0 +1,51 @@
+{
+//Conjuntos
+
+CONJ: num -> 0~9;
+CONJ: BINARIO -> 0,1;
+CONJ: mayusculas -> A~Z;
+CONJ: minusculas -> a~z;
+CONJ: digitos -> 0~9;
+CONJ: vocales_min -> a,e,i,o,u;
+CONJ: VOCALES_may -> A,E,I,O,U;
+CONJ: simbolos -> !~&;
+CONJ: otros -> @~};
+CONJ: relacionales -> <~>;
+CONJ: logicos -> &,!,|;
+CONJ: operadores -> +,-,*,\,^,%;
+CONJ: abecedario -> a~z;
+CONJ: conjnum -> 2~6;
+
+<!
+//Este es por chingar y si lo toma comentario tu lexico esta defecado
+!>
+
+//Este si deberia ser comentario 
+<!
+/////////////////////////////////////////////////////////
+--------------------------------------------------------
+--------------------------------------------------------
+                   Ahorita viene lo bueno
+--------------------------------------------------------
+--------------------------------------------------------
+////////////////////////////////////////////////////////
+!>
+
+ExpresionLIGERA -> ."GUATEMALA"."COVID"+|"jeje".."a""b"{BINARIO};
+ExpresionMEDIA ->++|\"+|*."FEKA MASTER"|?\n\t+{VOCALES_may};
+ExpresionSEXO ->*."ESTA COCHA "|{simbolos}+++?.\n|."A"."B"."C"."D"."E"."F"."G"."H""I"  +?."a"."b"."c"."d"."e"."f"."g"."h""i";
+%%
+
+//Expresiones para la ligera
+ligera : "GUATEMALACOVIDjeje"; //Valido para ExpresionLIGERA
+noligera: "GUATECOVIDab1"; //NO es valida
+
+//Expresiones para la media
+media1: "FEKA MASTER"; //Valida
+media2: "ABCDEFGHIJKMNLOPGRSTUVWYZ"; //Saber si es valida
+//Si la anterior les sale valida informen
+
+//EXPRESIONES SEXO
+facil : "ESTA COCHA ";
+validaAHUEVOS : "ESTA COCHA !";
+}

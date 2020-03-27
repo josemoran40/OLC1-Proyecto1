@@ -166,7 +166,23 @@ namespace _OLC1_Proyecto1
                             ||  this.anterior == Token.Tipo.SALTODELINEA ||  this.anterior == Token.Tipo.TABULACION
                             ||  this.anterior == Token.Tipo.SLASHCOMILLAS ||  this.anterior == Token.Tipo.COMILLA || this.anterior == Token.Tipo.TODO)
             {
-                cadena += first + "->" + last + "[label = \"" + valor + "\"]";
+                if (this.anterior == Token.Tipo.SALTODELINEA) {
+
+                    cadena += first + "->" + last + "[label = \"\\\\n\"]";
+                }else if (this.anterior == Token.Tipo.TABULACION)
+                {
+
+                    cadena += first + "->" + last + "[label = \"\\\\t\"]";
+                }else if (this.anterior == Token.Tipo.SLASHCOMILLAS)
+                {
+
+                    cadena += first + "->" + last + "[label = \"\\\"\"]";
+                }
+                else
+                {
+                    cadena += first + "->" + last + "[label = \"" + valor + "\"]";
+
+                }
             }
 
             return cadena;

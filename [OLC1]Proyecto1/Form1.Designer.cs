@@ -33,6 +33,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -48,7 +49,7 @@
             this.button6 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.button9 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -70,6 +71,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1316, 38);
             this.panel1.TabIndex = 0;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // label1
             // 
@@ -112,6 +114,14 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Editor de Texto";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Location = new System.Drawing.Point(13, 22);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(670, 351);
+            this.tabControl1.TabIndex = 0;
             // 
             // groupBox2
             // 
@@ -241,7 +251,7 @@
             this.button4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkGray;
             this.button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGray;
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Location = new System.Drawing.Point(263, 53);
+            this.button4.Location = new System.Drawing.Point(222, 52);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(46, 31);
             this.button4.TabIndex = 7;
@@ -256,7 +266,7 @@
             this.button5.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkGray;
             this.button5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGray;
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Location = new System.Drawing.Point(327, 54);
+            this.button5.Location = new System.Drawing.Point(286, 53);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(46, 31);
             this.button5.TabIndex = 8;
@@ -271,7 +281,7 @@
             this.button6.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkGray;
             this.button6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGray;
             this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.Location = new System.Drawing.Point(402, 54);
+            this.button6.Location = new System.Drawing.Point(350, 53);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(46, 34);
             this.button6.TabIndex = 9;
@@ -302,20 +312,27 @@
             this.button8.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkGray;
             this.button8.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGray;
             this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button8.Location = new System.Drawing.Point(692, 762);
+            this.button8.Location = new System.Drawing.Point(418, 53);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(38, 32);
             this.button8.TabIndex = 11;
             this.button8.UseVisualStyleBackColor = true;
             this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
-            // tabControl1
+            // button9
             // 
-            this.tabControl1.Location = new System.Drawing.Point(13, 22);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(670, 351);
-            this.tabControl1.TabIndex = 0;
+            this.button9.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button9.BackgroundImage")));
+            this.button9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button9.FlatAppearance.BorderSize = 0;
+            this.button9.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkGray;
+            this.button9.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGray;
+            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button9.Location = new System.Drawing.Point(478, 52);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(38, 32);
+            this.button9.TabIndex = 12;
+            this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
             // Form1
             // 
@@ -324,6 +341,7 @@
             this.AutoScroll = true;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
             this.ClientSize = new System.Drawing.Size(1316, 821);
+            this.Controls.Add(this.button9);
             this.Controls.Add(this.button8);
             this.Controls.Add(this.button7);
             this.Controls.Add(this.button6);
@@ -379,6 +397,7 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.Button button9;
     }
 }
 

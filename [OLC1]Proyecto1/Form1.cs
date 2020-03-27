@@ -88,7 +88,7 @@ namespace _OLC1_Proyecto1
                     Control ctrl = tabControl1.Controls[selectedTab].Controls[0];
 
                     tabControl1.Controls[selectedTab].Text = nombre;
-                    FastColoredTextBoxNS.FastColoredTextBox rtb = ctrl as FastColoredTextBoxNS.FastColoredTextBox;
+                    RichTextBox rtb = ctrl as RichTextBox;
                     rtb.Text = File.ReadAllText(ruta, Encoding.Default);    
                 }
             }
@@ -109,7 +109,7 @@ namespace _OLC1_Proyecto1
             {
                 int selectedTab = tabControl1.SelectedIndex;
                 Control ctrl = tabControl1.Controls[selectedTab].Controls[0];
-                FastColoredTextBoxNS.FastColoredTextBox rtb = ctrl as FastColoredTextBoxNS.FastColoredTextBox;
+                RichTextBox rtb = ctrl as RichTextBox;
 
                 AnalizadorLexico analizador = new AnalizadorLexico();
                 LinkedList<Token> ltokens = analizador.analizar(rtb.Text);
@@ -133,7 +133,7 @@ namespace _OLC1_Proyecto1
                     pictureBox1.Image = images.ElementAt(0);
                     pictureBox2.Image = AFD.ElementAt(0);
                     ValidarExpresion validarExpresion = new ValidarExpresion();
-                    validarExpresion.validarExpresiones(ltokens, ArbolBinario.lMueves, conjuntos, arbolBinario.getFin());
+                    validarExpresion.validarExpresiones(ltokens, ArbolBinario.lMueves, conjuntos, arbolBinario.getFin(), arbolBinario.getNombres());
                     if (validarExpresion.getValidaciones() != "")
                     {
                         richTextBox1.Text = "\n" + validarExpresion.getValidaciones();
@@ -143,11 +143,12 @@ namespace _OLC1_Proyecto1
                         richTextBox1.Text = "\n\tNo hay lexemas validos";
                     }
                     generarXMLTokens(ltokens);
-                    generarAFN(nodos);
                     expresion = 0;
                 }
                 else
                 {
+
+                    generarXMLErrores(lErrores);
                     MessageBox.Show("ERROR DE ENTRADA", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
@@ -227,6 +228,24 @@ namespace _OLC1_Proyecto1
             string path = "errores.xml";
             File.WriteAllText(path, "");
 
+            iTextSharp.text.Document doc = new iTextSharp.text.Document();
+            iTextSharp.text.pdf.PdfWriter.GetInstance(doc, new FileStream("errores.pdf", FileMode.Create));
+            doc.Open();
+            iTextSharp.text.Paragraph titulo = new iTextSharp.text.Paragraph();
+            titulo.Font = iTextSharp.text.FontFactory.GetFont(iTextSharp.text.FontFactory.HELVETICA_BOLD, 18f, iTextSharp.text.BaseColor.ORANGE);
+            titulo.Add("REPORTE DE ERRORES");
+            doc.Add(titulo);
+            doc.Add(new iTextSharp.text.Paragraph("\n"));
+
+            doc.Add(new iTextSharp.text.Paragraph("\n"));
+
+            doc.Add(new iTextSharp.text.Paragraph(""));
+
+            iTextSharp.text.pdf.PdfPTable table = new iTextSharp.text.pdf.PdfPTable(4);
+
+            table.AddCell("Error");
+            table.AddCell("Fila");
+            table.AddCell("Columna");
 
             if (File.Exists(path))
             {
@@ -236,6 +255,10 @@ namespace _OLC1_Proyecto1
                     file.WriteLine("<ListaErrores>");
                     foreach (Error item in errors)
                     {
+                        table.AddCell(item.getToken());                        
+                        table.AddCell(""+item.getFila());
+                        table.AddCell("" + item.getColumna());
+
                         file.WriteLine(
                         "   <Error>\n" +
                         "       <Valor>" + item.getToken() + "</Valor>\n" +
@@ -248,16 +271,15 @@ namespace _OLC1_Proyecto1
                     Console.WriteLine("si se modifico");
                     file.Close();
                 }
+                doc.Add(table);
+                doc.Close();
             }
             /*Process p = new Process();
             p.StartInfo.FileName = path;
             p.Start();*/
         }
 
-        private void generarAFN(LinkedList<Nodo> nodos)
-        {
-
-        }
+        
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
@@ -320,9 +342,12 @@ namespace _OLC1_Proyecto1
             TabPage page = new TabPage();
 
             tabControl1.TabPages.Add(page);
-            FastColoredTextBoxNS.FastColoredTextBox rtb = new FastColoredTextBoxNS.FastColoredTextBox();
-
+            RichTextBox rtb = new RichTextBox();
+            rtb.Font = new Font("Courier New", 10, FontStyle.Regular);
+            rtb.BorderStyle = BorderStyle.None;
             rtb.Dock = DockStyle.Fill;
+            rtb.WordWrap = false;
+            rtb.ScrollBars = RichTextBoxScrollBars.ForcedBoth;
             tabControl1.SelectTab(page);
             tabControl1.SelectedTab.Controls.Add(rtb);
 
@@ -345,7 +370,7 @@ namespace _OLC1_Proyecto1
                 {
                     int selectedTab = tabControl1.SelectedIndex;
                     Control ctrl = tabControl1.Controls[selectedTab].Controls[0];
-                    FastColoredTextBoxNS.FastColoredTextBox rtb = ctrl as FastColoredTextBoxNS.FastColoredTextBox;
+                    RichTextBox rtb = ctrl as RichTextBox;
                     string cadena = rtb.Text;
                     string ruta = folder.SelectedPath;
                     string nombre = InputKey.InputDialog.mostrar("Ingrese el nombre del archivo");
@@ -356,10 +381,34 @@ namespace _OLC1_Proyecto1
                     }
                     Console.WriteLine(ruta);
 
-                    tabControl1.SelectedTab.Text = nombre + ".ly";
+                    tabControl1.SelectedTab.Text = nombre + ".er";
                     MessageBox.Show("Archivo guardado con exito", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            Process p = new Process();
+            p.StartInfo.FileName = "reporte.pdf";
+            p.Start();
+
+
+            p.StartInfo.FileName = "archivo.xml";
+            p.Start();
+
+
+            p.StartInfo.FileName = "errores.pdf";
+            p.Start();
+
+
+            p.StartInfo.FileName = "errores.xml";
+            p.Start();
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 

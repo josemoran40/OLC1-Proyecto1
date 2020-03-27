@@ -18,6 +18,7 @@ namespace _OLC1_Proyecto1
         LinkedList<Image> AFD;
         LinkedList<Mueve> mueves;
         LinkedList<Image> Tablas;
+        LinkedList<string> nombresExp;
         public int fin;
         public static LinkedList<string> entradas;
         public static LinkedList<LinkedList<Mueve>> lMueves;
@@ -30,6 +31,7 @@ namespace _OLC1_Proyecto1
             Tablas = new LinkedList<Image>();
             lTokens = tokens;
             lMueves = new LinkedList<LinkedList<Mueve>>();
+            nombresExp = new LinkedList<string>();
             fin = 0;
             for (int i = 0; i < lTokens.Count(); i++)
             {
@@ -44,6 +46,7 @@ namespace _OLC1_Proyecto1
                     lNuevos = new LinkedList<Token>();
                     tokensNuevos = new LinkedList<Nodo>();
                     entradas = new LinkedList<string>();
+                    nombresExp.AddLast(token.getValor());
                     i = i + 2;
                     token = lTokens.ElementAt(i);
                     while (token.getTipo() != Token.Tipo.PUNTOYCOMA)
@@ -308,6 +311,11 @@ namespace _OLC1_Proyecto1
             }
             return null;
         }
-
+        
+        public LinkedList<string> getNombres()
+        {
+            return nombresExp;
+        }
     }
+
 }

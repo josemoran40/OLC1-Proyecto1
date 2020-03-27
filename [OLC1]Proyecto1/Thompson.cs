@@ -113,11 +113,19 @@ namespace _OLC1_Proyecto1
             }
             foreach (var item in mueves)
             {
-                Console.WriteLine("Mueve de: " +item.getEstado() + " con: " + item.getEntrada() + " hacia: " +item.getCerradura().getNombre());
+                Console.WriteLine("Mueve de: " + item.getEstado() + " con: " + item.getEntrada() + " hacia: " + item.getCerradura().getNombre());
 
-                if (item.getEntrada().Equals("\n") || item.getEntrada().Equals("\t") || item.getEntrada().Equals("\\"))
+                if (item.getEntrada().Equals("\n"))
                 {
-                    cadena += item.getEstado() + "->" + item.getCerradura().getNombre() + "[label = \"\\" + item.getEntrada() + "\" ];\n";
+                    cadena += item.getEstado() + "->" + item.getCerradura().getNombre() + "[label = \"\\\\n\" ];\n";
+                }
+                else if(item.getEntrada().Equals("\t"))
+                {
+                    cadena += item.getEstado() + "->" + item.getCerradura().getNombre() + "[label = \"\\\\t\" ];\n";
+                }
+                else if (item.getEntrada().Equals("\""))
+                {
+                    cadena += item.getEstado() + "->" + item.getCerradura().getNombre() + "[label = \"\\\"\" ];\n";
                 }
                 else
                 {
