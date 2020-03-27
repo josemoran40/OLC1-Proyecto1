@@ -149,6 +149,12 @@ namespace _OLC1_Proyecto1
                 {
 
                     generarXMLErrores(lErrores);
+                    pictureBox1.Image = null;
+                    pictureBox2.Image = null;
+                    richTextBox1.Text = "";
+                    images = new LinkedList<Image>();
+                    AFD = new LinkedList<Image>();
+                    Tablas = new LinkedList<Image>();
                     MessageBox.Show("ERROR DE ENTRADA", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
@@ -407,6 +413,11 @@ namespace _OLC1_Proyecto1
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
