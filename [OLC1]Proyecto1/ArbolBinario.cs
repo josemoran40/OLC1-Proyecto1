@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -19,6 +20,7 @@ namespace _OLC1_Proyecto1
         LinkedList<Mueve> mueves;
         LinkedList<Image> Tablas;
         LinkedList<string> nombresExp;
+        int graficar;
         public int fin;
         public static LinkedList<string> entradas;
         public static LinkedList<LinkedList<Mueve>> lMueves;
@@ -26,6 +28,7 @@ namespace _OLC1_Proyecto1
         public LinkedList<Nodo> generarLista(LinkedList<Token> tokens)
         {
             imagenes = new LinkedList<Image>();
+            graficar = 0;
             AFD = new LinkedList<Image>();
             mueves = new LinkedList<Mueve>();
             Tablas = new LinkedList<Image>();
@@ -269,9 +272,9 @@ namespace _OLC1_Proyecto1
 
 
 
-        public static string graphviz = @"D:\Programas\Graphviz\bin\dot.exe";
-        public static string archivoentrada = @"C:\Users\jose_\OneDrive\Escritorio\grafico.txt";
-        private static Bitmap Run(string dot)
+        public static string graphviz = @"dot.exe";
+        public static string archivoentrada = @"grafico.txt";
+      private static Bitmap Run(string dot)
         {
             try
             {
@@ -310,7 +313,33 @@ namespace _OLC1_Proyecto1
                 MessageBox.Show("Algo ha salido mal :(", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             return null;
-        }
+        }/*
+
+        private Bitmap Run(string dot)
+        {
+            try
+            {
+                System.IO.File.WriteAllText("archivo.txt", dot);
+                ProcessStartInfo so = new ProcessStartInfo("dot.exe");
+                so.Arguments = "-Tpng \"archivo.txt \" -o \"archivo"+graficar+".png\"";
+                
+                Process.Start(so);
+                Bitmap bitmap = null; 
+                using (Stream bmpStream = System.IO.File.Open("archivo"+graficar+".png", System.IO.FileMode.Open))
+                {
+                    Image image = Image.FromStream(bmpStream);
+                    bitmap = new Bitmap(image);
+                }
+
+                graficar++;
+                return bitmap;
+            }
+            catch (System.IO.FileNotFoundException)
+            {
+                MessageBox.Show("Algo ha salido mal :(", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+                return null;
+        }*/
         
         public LinkedList<string> getNombres()
         {

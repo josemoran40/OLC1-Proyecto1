@@ -7,100 +7,1392 @@
    </Token>
 
    <Token>
+       <Nombre>Menor Que</Nombre>
+       <Valor><</Valor>
+       <Fila>4</Fila>
+       <Columna>1</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Exclamacion</Nombre>
+       <Valor>!</Valor>
+       <Fila>4</Fila>
+       <Columna>2</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Comentario</Nombre>
+       <Valor>
+	Definicion de mis expresiones regulares</Valor>
+       <Fila>4</Fila>
+       <Columna>2</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Exclamacion</Nombre>
+       <Valor>!</Valor>
+       <Fila>4</Fila>
+       <Columna>2</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Mayor Que</Nombre>
+       <Valor>></Valor>
+       <Fila>4</Fila>
+       <Columna>2</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Palabra Reservada</Nombre>
+       <Valor>CONJ</Valor>
+       <Fila>5</Fila>
+       <Columna>2</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Dos Puntos</Nombre>
+       <Valor>:</Valor>
+       <Fila>5</Fila>
+       <Columna>2</Columna>
+   </Token>
+
+   <Token>
        <Nombre>ID</Nombre>
-       <Valor>a</Valor>
-       <Fila>2</Fila>
+       <Valor>num</Valor>
+       <Fila>5</Fila>
+       <Columna>6</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Flecha</Nombre>
+       <Valor>-></Valor>
+       <Fila>5</Fila>
+       <Columna>8</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Caracter</Nombre>
+       <Valor>0</Valor>
+       <Fila>5</Fila>
+       <Columna>11</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Virguilla</Nombre>
+       <Valor>~</Valor>
+       <Fila>5</Fila>
+       <Columna>11</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Caracter</Nombre>
+       <Valor>9</Valor>
+       <Fila>5</Fila>
+       <Columna>11</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Punto y coma</Nombre>
+       <Valor>;</Valor>
+       <Fila>5</Fila>
+       <Columna>12</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Palabra Reservada</Nombre>
+       <Valor>CONJ</Valor>
+       <Fila>6</Fila>
+       <Columna>2</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Dos Puntos</Nombre>
+       <Valor>:</Valor>
+       <Fila>6</Fila>
+       <Columna>2</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>ID</Nombre>
+       <Valor>abcd</Valor>
+       <Fila>6</Fila>
+       <Columna>6</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Flecha</Nombre>
+       <Valor>-></Valor>
+       <Fila>6</Fila>
+       <Columna>8</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Caracter</Nombre>
+       <Valor>A</Valor>
+       <Fila>6</Fila>
+       <Columna>11</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Virguilla</Nombre>
+       <Valor>~</Valor>
+       <Fila>6</Fila>
+       <Columna>11</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Caracter</Nombre>
+       <Valor>Z</Valor>
+       <Fila>6</Fila>
+       <Columna>11</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Punto y coma</Nombre>
+       <Valor>;</Valor>
+       <Fila>6</Fila>
+       <Columna>12</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Palabra Reservada</Nombre>
+       <Valor>CONJ</Valor>
+       <Fila>7</Fila>
+       <Columna>2</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Dos Puntos</Nombre>
+       <Valor>:</Valor>
+       <Fila>7</Fila>
+       <Columna>2</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>ID</Nombre>
+       <Valor>BINARIO</Valor>
+       <Fila>7</Fila>
+       <Columna>6</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Flecha</Nombre>
+       <Valor>-></Valor>
+       <Fila>7</Fila>
+       <Columna>8</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Caracter</Nombre>
+       <Valor>0</Valor>
+       <Fila>7</Fila>
+       <Columna>11</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Coma</Nombre>
+       <Valor>,</Valor>
+       <Fila>7</Fila>
+       <Columna>12</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Caracter</Nombre>
+       <Valor>1</Valor>
+       <Fila>7</Fila>
+       <Columna>12</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Punto y coma</Nombre>
+       <Valor>;</Valor>
+       <Fila>7</Fila>
+       <Columna>13</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Menor Que</Nombre>
+       <Valor><</Valor>
+       <Fila>11</Fila>
+       <Columna>1</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Exclamacion</Nombre>
+       <Valor>!</Valor>
+       <Fila>11</Fila>
+       <Columna>2</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Comentario</Nombre>
+       <Valor>
+	Definicion de mis expresiones regulares</Valor>
+       <Fila>11</Fila>
+       <Columna>2</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Exclamacion</Nombre>
+       <Valor>!</Valor>
+       <Fila>11</Fila>
+       <Columna>2</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Mayor Que</Nombre>
+       <Valor>></Valor>
+       <Fila>11</Fila>
+       <Columna>2</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>ID</Nombre>
+       <Valor>operaDecimales</Valor>
+       <Fila>12</Fila>
        <Columna>2</Columna>
    </Token>
 
    <Token>
        <Nombre>Flecha</Nombre>
        <Valor>-></Valor>
-       <Fila>2</Fila>
-       <Columna>2</Columna>
+       <Fila>12</Fila>
+       <Columna>4</Columna>
    </Token>
 
    <Token>
        <Nombre>Punto</Nombre>
        <Valor>.</Valor>
-       <Fila>2</Fila>
+       <Fila>12</Fila>
+       <Columna>7</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Punto</Nombre>
+       <Valor>.</Valor>
+       <Fila>12</Fila>
+       <Columna>10</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Mas</Nombre>
+       <Valor>+</Valor>
+       <Fila>12</Fila>
+       <Columna>13</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Llave Abre</Nombre>
+       <Valor>{</Valor>
+       <Fila>12</Fila>
+       <Columna>16</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>ID</Nombre>
+       <Valor>num</Valor>
+       <Fila>12</Fila>
+       <Columna>18</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Llave Cierra</Nombre>
+       <Valor>}</Valor>
+       <Fila>12</Fila>
+       <Columna>17</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Punto</Nombre>
+       <Valor>.</Valor>
+       <Fila>12</Fila>
+       <Columna>20</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Comillas Dobles</Nombre>
+       <Valor>"</Valor>
+       <Fila>12</Fila>
+       <Columna>23</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Cadena</Nombre>
+       <Valor>.</Valor>
+       <Fila>12</Fila>
+       <Columna>24</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Comillas Dobles</Nombre>
+       <Valor>"</Valor>
+       <Fila>12</Fila>
+       <Columna>24</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Mas</Nombre>
+       <Valor>+</Valor>
+       <Fila>12</Fila>
+       <Columna>26</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Llave Abre</Nombre>
+       <Valor>{</Valor>
+       <Fila>12</Fila>
+       <Columna>29</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>ID</Nombre>
+       <Valor>num</Valor>
+       <Fila>12</Fila>
+       <Columna>31</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Llave Cierra</Nombre>
+       <Valor>}</Valor>
+       <Fila>12</Fila>
+       <Columna>30</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Punto</Nombre>
+       <Valor>.</Valor>
+       <Fila>12</Fila>
+       <Columna>33</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>OR</Nombre>
+       <Valor>|</Valor>
+       <Fila>12</Fila>
+       <Columna>36</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Comillas Dobles</Nombre>
+       <Valor>"</Valor>
+       <Fila>12</Fila>
+       <Columna>39</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Cadena</Nombre>
+       <Valor>+</Valor>
+       <Fila>12</Fila>
+       <Columna>40</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Comillas Dobles</Nombre>
+       <Valor>"</Valor>
+       <Fila>12</Fila>
+       <Columna>40</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>OR</Nombre>
+       <Valor>|</Valor>
+       <Fila>12</Fila>
+       <Columna>42</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Comillas Dobles</Nombre>
+       <Valor>"</Valor>
+       <Fila>12</Fila>
+       <Columna>45</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Cadena</Nombre>
+       <Valor>-</Valor>
+       <Fila>12</Fila>
+       <Columna>46</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Comillas Dobles</Nombre>
+       <Valor>"</Valor>
+       <Fila>12</Fila>
+       <Columna>46</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>OR</Nombre>
+       <Valor>|</Valor>
+       <Fila>12</Fila>
+       <Columna>48</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Comillas Dobles</Nombre>
+       <Valor>"</Valor>
+       <Fila>12</Fila>
+       <Columna>51</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Cadena</Nombre>
+       <Valor>*</Valor>
+       <Fila>12</Fila>
+       <Columna>52</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Comillas Dobles</Nombre>
+       <Valor>"</Valor>
+       <Fila>12</Fila>
+       <Columna>52</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>OR</Nombre>
+       <Valor>|</Valor>
+       <Fila>12</Fila>
+       <Columna>54</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Comillas Dobles</Nombre>
+       <Valor>"</Valor>
+       <Fila>12</Fila>
+       <Columna>57</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Cadena</Nombre>
+       <Valor>/</Valor>
+       <Fila>12</Fila>
+       <Columna>58</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Comillas Dobles</Nombre>
+       <Valor>"</Valor>
+       <Fila>12</Fila>
+       <Columna>58</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Comillas Dobles</Nombre>
+       <Valor>"</Valor>
+       <Fila>12</Fila>
+       <Columna>60</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Cadena</Nombre>
+       <Valor>%</Valor>
+       <Fila>12</Fila>
+       <Columna>61</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Comillas Dobles</Nombre>
+       <Valor>"</Valor>
+       <Fila>12</Fila>
+       <Columna>61</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Punto</Nombre>
+       <Valor>.</Valor>
+       <Fila>12</Fila>
+       <Columna>63</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Mas</Nombre>
+       <Valor>+</Valor>
+       <Fila>12</Fila>
+       <Columna>66</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Llave Abre</Nombre>
+       <Valor>{</Valor>
+       <Fila>12</Fila>
+       <Columna>69</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>ID</Nombre>
+       <Valor>num</Valor>
+       <Fila>12</Fila>
+       <Columna>71</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Llave Cierra</Nombre>
+       <Valor>}</Valor>
+       <Fila>12</Fila>
+       <Columna>70</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Punto</Nombre>
+       <Valor>.</Valor>
+       <Fila>12</Fila>
+       <Columna>73</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Comillas Dobles</Nombre>
+       <Valor>"</Valor>
+       <Fila>12</Fila>
+       <Columna>76</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Cadena</Nombre>
+       <Valor>.</Valor>
+       <Fila>12</Fila>
+       <Columna>77</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Comillas Dobles</Nombre>
+       <Valor>"</Valor>
+       <Fila>12</Fila>
+       <Columna>77</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Mas</Nombre>
+       <Valor>+</Valor>
+       <Fila>12</Fila>
+       <Columna>79</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Llave Abre</Nombre>
+       <Valor>{</Valor>
+       <Fila>12</Fila>
+       <Columna>82</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>ID</Nombre>
+       <Valor>num</Valor>
+       <Fila>12</Fila>
+       <Columna>84</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Llave Cierra</Nombre>
+       <Valor>}</Valor>
+       <Fila>12</Fila>
+       <Columna>83</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Punto y coma</Nombre>
+       <Valor>;</Valor>
+       <Fila>12</Fila>
+       <Columna>84</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>ID</Nombre>
+       <Valor>binarios</Valor>
+       <Fila>13</Fila>
+       <Columna>2</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Flecha</Nombre>
+       <Valor>-></Valor>
+       <Fila>13</Fila>
+       <Columna>4</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Punto</Nombre>
+       <Valor>.</Valor>
+       <Fila>13</Fila>
+       <Columna>7</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Punto</Nombre>
+       <Valor>.</Valor>
+       <Fila>13</Fila>
+       <Columna>10</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Punto</Nombre>
+       <Valor>.</Valor>
+       <Fila>13</Fila>
+       <Columna>13</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Punto</Nombre>
+       <Valor>.</Valor>
+       <Fila>13</Fila>
+       <Columna>16</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Punto</Nombre>
+       <Valor>.</Valor>
+       <Fila>13</Fila>
+       <Columna>19</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Comillas Dobles</Nombre>
+       <Valor>"</Valor>
+       <Fila>13</Fila>
+       <Columna>22</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Cadena</Nombre>
+       <Valor>si</Valor>
+       <Fila>13</Fila>
+       <Columna>23</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Comillas Dobles</Nombre>
+       <Valor>"</Valor>
+       <Fila>13</Fila>
+       <Columna>23</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Mas</Nombre>
+       <Valor>+</Valor>
+       <Fila>13</Fila>
+       <Columna>25</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Llave Abre</Nombre>
+       <Valor>{</Valor>
+       <Fila>13</Fila>
+       <Columna>28</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>ID</Nombre>
+       <Valor>BINARIO</Valor>
+       <Fila>13</Fila>
+       <Columna>30</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Llave Cierra</Nombre>
+       <Valor>}</Valor>
+       <Fila>13</Fila>
+       <Columna>29</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Comillas Dobles</Nombre>
+       <Valor>"</Valor>
+       <Fila>13</Fila>
+       <Columna>32</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Cadena</Nombre>
+       <Valor>=</Valor>
+       <Fila>13</Fila>
+       <Columna>33</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Comillas Dobles</Nombre>
+       <Valor>"</Valor>
+       <Fila>13</Fila>
+       <Columna>33</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Llave Abre</Nombre>
+       <Valor>{</Valor>
+       <Fila>13</Fila>
+       <Columna>35</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>ID</Nombre>
+       <Valor>num</Valor>
+       <Fila>13</Fila>
+       <Columna>37</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Llave Cierra</Nombre>
+       <Valor>}</Valor>
+       <Fila>13</Fila>
+       <Columna>36</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Mas</Nombre>
+       <Valor>+</Valor>
+       <Fila>13</Fila>
+       <Columna>39</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>OR</Nombre>
+       <Valor>|</Valor>
+       <Fila>13</Fila>
+       <Columna>42</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Llave Abre</Nombre>
+       <Valor>{</Valor>
+       <Fila>13</Fila>
+       <Columna>45</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>ID</Nombre>
+       <Valor>abcd</Valor>
+       <Fila>13</Fila>
+       <Columna>47</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Llave Cierra</Nombre>
+       <Valor>}</Valor>
+       <Fila>13</Fila>
+       <Columna>46</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Comillas Dobles</Nombre>
+       <Valor>"</Valor>
+       <Fila>13</Fila>
+       <Columna>49</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Cadena</Nombre>
+       <Valor>_</Valor>
+       <Fila>13</Fila>
+       <Columna>50</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Comillas Dobles</Nombre>
+       <Valor>"</Valor>
+       <Fila>13</Fila>
+       <Columna>50</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Punto</Nombre>
+       <Valor>.</Valor>
+       <Fila>13</Fila>
+       <Columna>52</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Mas</Nombre>
+       <Valor>+</Valor>
+       <Fila>13</Fila>
+       <Columna>55</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Llave Abre</Nombre>
+       <Valor>{</Valor>
+       <Fila>13</Fila>
+       <Columna>58</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>ID</Nombre>
+       <Valor>BINARIO</Valor>
+       <Fila>13</Fila>
+       <Columna>60</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Llave Cierra</Nombre>
+       <Valor>}</Valor>
+       <Fila>13</Fila>
+       <Columna>59</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Punto</Nombre>
+       <Valor>.</Valor>
+       <Fila>13</Fila>
+       <Columna>62</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Mas</Nombre>
+       <Valor>+</Valor>
+       <Fila>13</Fila>
+       <Columna>65</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Llave Abre</Nombre>
+       <Valor>{</Valor>
+       <Fila>13</Fila>
+       <Columna>68</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>ID</Nombre>
+       <Valor>abcd</Valor>
+       <Fila>13</Fila>
+       <Columna>70</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Llave Cierra</Nombre>
+       <Valor>}</Valor>
+       <Fila>13</Fila>
+       <Columna>69</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>OR</Nombre>
+       <Valor>|</Valor>
+       <Fila>13</Fila>
+       <Columna>72</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Comillas Dobles</Nombre>
+       <Valor>"</Valor>
+       <Fila>13</Fila>
+       <Columna>75</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Cadena</Nombre>
+       <Valor>?</Valor>
+       <Fila>13</Fila>
+       <Columna>76</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Comillas Dobles</Nombre>
+       <Valor>"</Valor>
+       <Fila>13</Fila>
+       <Columna>76</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Mas</Nombre>
+       <Valor>+</Valor>
+       <Fila>13</Fila>
+       <Columna>78</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Llave Abre</Nombre>
+       <Valor>{</Valor>
+       <Fila>13</Fila>
+       <Columna>79</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>ID</Nombre>
+       <Valor>num</Valor>
+       <Fila>13</Fila>
+       <Columna>81</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Llave Cierra</Nombre>
+       <Valor>}</Valor>
+       <Fila>13</Fila>
+       <Columna>80</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Punto y coma</Nombre>
+       <Valor>;</Valor>
+       <Fila>13</Fila>
+       <Columna>81</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>ID</Nombre>
+       <Valor>decnum</Valor>
+       <Fila>14</Fila>
+       <Columna>2</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Flecha</Nombre>
+       <Valor>-></Valor>
+       <Fila>14</Fila>
+       <Columna>4</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Punto</Nombre>
+       <Valor>.</Valor>
+       <Fila>14</Fila>
+       <Columna>7</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Mas</Nombre>
+       <Valor>+</Valor>
+       <Fila>14</Fila>
+       <Columna>10</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Llave Abre</Nombre>
+       <Valor>{</Valor>
+       <Fila>14</Fila>
+       <Columna>11</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>ID</Nombre>
+       <Valor>abecedario</Valor>
+       <Fila>14</Fila>
+       <Columna>13</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Llave Cierra</Nombre>
+       <Valor>}</Valor>
+       <Fila>14</Fila>
+       <Columna>12</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Punto</Nombre>
+       <Valor>.</Valor>
+       <Fila>14</Fila>
+       <Columna>17</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Llave Abre</Nombre>
+       <Valor>{</Valor>
+       <Fila>14</Fila>
+       <Columna>20</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>ID</Nombre>
+       <Valor>conjnum</Valor>
+       <Fila>14</Fila>
+       <Columna>22</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Llave Cierra</Nombre>
+       <Valor>}</Valor>
+       <Fila>14</Fila>
+       <Columna>21</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Interrogacion</Nombre>
+       <Valor>?</Valor>
+       <Fila>14</Fila>
+       <Columna>24</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Punto</Nombre>
+       <Valor>.</Valor>
+       <Fila>14</Fila>
+       <Columna>27</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Comillas Dobles</Nombre>
+       <Valor>"</Valor>
+       <Fila>14</Fila>
+       <Columna>30</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Cadena</Nombre>
+       <Valor>:</Valor>
+       <Fila>14</Fila>
+       <Columna>31</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Comillas Dobles</Nombre>
+       <Valor>"</Valor>
+       <Fila>14</Fila>
+       <Columna>31</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Mas</Nombre>
+       <Valor>+</Valor>
+       <Fila>14</Fila>
+       <Columna>33</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Llave Abre</Nombre>
+       <Valor>{</Valor>
+       <Fila>14</Fila>
+       <Columna>34</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>ID</Nombre>
+       <Valor>abecedario</Valor>
+       <Fila>14</Fila>
+       <Columna>36</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Llave Cierra</Nombre>
+       <Valor>}</Valor>
+       <Fila>14</Fila>
+       <Columna>35</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Punto y coma</Nombre>
+       <Valor>;</Valor>
+       <Fila>14</Fila>
+       <Columna>36</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Porcentaje</Nombre>
+       <Valor>%</Valor>
+       <Fila>17</Fila>
+       <Columna>1</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Porcentaje</Nombre>
+       <Valor>%</Valor>
+       <Fila>17</Fila>
+       <Columna>2</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Porcentaje</Nombre>
+       <Valor>%</Valor>
+       <Fila>18</Fila>
+       <Columna>1</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Porcentaje</Nombre>
+       <Valor>%</Valor>
+       <Fila>18</Fila>
+       <Columna>2</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Menor Que</Nombre>
+       <Valor><</Valor>
+       <Fila>20</Fila>
+       <Columna>1</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Exclamacion</Nombre>
+       <Valor>!</Valor>
+       <Fila>20</Fila>
+       <Columna>2</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Comentario</Nombre>
+       <Valor>
+	Definicion de lexemas</Valor>
+       <Fila>20</Fila>
+       <Columna>2</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Exclamacion</Nombre>
+       <Valor>!</Valor>
+       <Fila>20</Fila>
+       <Columna>2</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Mayor Que</Nombre>
+       <Valor>></Valor>
+       <Fila>20</Fila>
+       <Columna>2</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>ID</Nombre>
+       <Valor>operaDecimales</Valor>
+       <Fila>22</Fila>
+       <Columna>2</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Dos Puntos</Nombre>
+       <Valor>:</Valor>
+       <Fila>22</Fila>
        <Columna>3</Columna>
    </Token>
 
    <Token>
        <Nombre>Comillas Dobles</Nombre>
        <Valor>"</Valor>
-       <Fila>2</Fila>
-       <Columna>4</Columna>
-   </Token>
-
-   <Token>
-       <Nombre>Cadena</Nombre>
-       <Valor>a</Valor>
-       <Fila>2</Fila>
-       <Columna>5</Columna>
-   </Token>
-
-   <Token>
-       <Nombre>Comillas Dobles</Nombre>
-       <Valor>"</Valor>
-       <Fila>2</Fila>
-       <Columna>5</Columna>
-   </Token>
-
-   <Token>
-       <Nombre>Comillas Dobles</Nombre>
-       <Valor>"</Valor>
-       <Fila>2</Fila>
-       <Columna>5</Columna>
-   </Token>
-
-   <Token>
-       <Nombre>Cadena</Nombre>
-       <Valor>b</Valor>
-       <Fila>2</Fila>
+       <Fila>22</Fila>
        <Columna>6</Columna>
    </Token>
 
    <Token>
+       <Nombre>Cadena</Nombre>
+       <Valor>5.5+13.5+1.10002%56123.89*13.5-0.2/0</Valor>
+       <Fila>22</Fila>
+       <Columna>7</Columna>
+   </Token>
+
+   <Token>
        <Nombre>Comillas Dobles</Nombre>
        <Valor>"</Valor>
-       <Fila>2</Fila>
-       <Columna>6</Columna>
+       <Fila>22</Fila>
+       <Columna>7</Columna>
    </Token>
 
    <Token>
        <Nombre>Punto y coma</Nombre>
        <Valor>;</Valor>
-       <Fila>2</Fila>
+       <Fila>22</Fila>
+       <Columna>7</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>ID</Nombre>
+       <Valor>binarios</Valor>
+       <Fila>23</Fila>
+       <Columna>2</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Dos Puntos</Nombre>
+       <Valor>:</Valor>
+       <Fila>23</Fila>
+       <Columna>3</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Comillas Dobles</Nombre>
+       <Valor>"</Valor>
+       <Fila>23</Fila>
        <Columna>6</Columna>
    </Token>
 
    <Token>
-       <Nombre>Porcentaje</Nombre>
-       <Valor>%</Valor>
-       <Fila>3</Fila>
+       <Nombre>Cadena</Nombre>
+       <Valor>si 111=7 ENTONCES_EL_BINARIO 1010 ES ?</Valor>
+       <Fila>23</Fila>
+       <Columna>7</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Comillas Dobles</Nombre>
+       <Valor>"</Valor>
+       <Fila>23</Fila>
+       <Columna>7</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Punto y coma</Nombre>
+       <Valor>;</Valor>
+       <Fila>23</Fila>
+       <Columna>7</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>ID</Nombre>
+       <Valor>binarios</Valor>
+       <Fila>24</Fila>
+       <Columna>2</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Dos Puntos</Nombre>
+       <Valor>:</Valor>
+       <Fila>24</Fila>
+       <Columna>3</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Comillas Dobles</Nombre>
+       <Valor>"</Valor>
+       <Fila>24</Fila>
+       <Columna>6</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Cadena</Nombre>
+       <Valor>si 111=7 ENTONCES_EL_BINARIO 1010 ES 10</Valor>
+       <Fila>24</Fila>
+       <Columna>7</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Comillas Dobles</Nombre>
+       <Valor>"</Valor>
+       <Fila>24</Fila>
+       <Columna>7</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Punto y coma</Nombre>
+       <Valor>;</Valor>
+       <Fila>24</Fila>
+       <Columna>7</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>ID</Nombre>
+       <Valor>decnum</Valor>
+       <Fila>25</Fila>
+       <Columna>2</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Dos Puntos</Nombre>
+       <Valor>:</Valor>
+       <Fila>25</Fila>
+       <Columna>3</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Comillas Dobles</Nombre>
+       <Valor>"</Valor>
+       <Fila>25</Fila>
+       <Columna>6</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Cadena</Nombre>
+       <Valor>numero 5: cinco</Valor>
+       <Fila>25</Fila>
+       <Columna>7</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Comillas Dobles</Nombre>
+       <Valor>"</Valor>
+       <Fila>25</Fila>
+       <Columna>7</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Punto y coma</Nombre>
+       <Valor>;</Valor>
+       <Fila>25</Fila>
+       <Columna>7</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>ID</Nombre>
+       <Valor>decnum</Valor>
+       <Fila>26</Fila>
+       <Columna>2</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Dos Puntos</Nombre>
+       <Valor>:</Valor>
+       <Fila>26</Fila>
+       <Columna>3</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Comillas Dobles</Nombre>
+       <Valor>"</Valor>
+       <Fila>26</Fila>
+       <Columna>6</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Cadena</Nombre>
+       <Valor>numero 2</Valor>
+       <Fila>26</Fila>
+       <Columna>7</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Comillas Dobles</Nombre>
+       <Valor>"</Valor>
+       <Fila>26</Fila>
+       <Columna>7</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Punto y coma</Nombre>
+       <Valor>;</Valor>
+       <Fila>26</Fila>
+       <Columna>7</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Menor Que</Nombre>
+       <Valor><</Valor>
+       <Fila>28</Fila>
        <Columna>1</Columna>
    </Token>
 
    <Token>
-       <Nombre>Porcentaje</Nombre>
-       <Valor>%</Valor>
-       <Fila>3</Fila>
+       <Nombre>Exclamacion</Nombre>
+       <Valor>!</Valor>
+       <Fila>28</Fila>
+       <Columna>2</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Comentario</Nombre>
+       <Valor>
+	Fin del archivo</Valor>
+       <Fila>28</Fila>
+       <Columna>2</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Exclamacion</Nombre>
+       <Valor>!</Valor>
+       <Fila>28</Fila>
+       <Columna>2</Columna>
+   </Token>
+
+   <Token>
+       <Nombre>Mayor Que</Nombre>
+       <Valor>></Valor>
+       <Fila>28</Fila>
        <Columna>2</Columna>
    </Token>
 
    <Token>
        <Nombre>Llave Cierra</Nombre>
        <Valor>}</Valor>
-       <Fila>4</Fila>
+       <Fila>29</Fila>
        <Columna>1</Columna>
    </Token>
 
    <Token>
        <Nombre>desconocido</Nombre>
        <Valor>#</Valor>
-       <Fila>4</Fila>
+       <Fila>29</Fila>
        <Columna>2</Columna>
    </Token>
 
